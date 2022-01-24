@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+input {
+  border: 2px solid gold;
+  background-color: black;
+  color: white;
+}
+
+button {
+  border: 3px solid gold;
+  background-color: black;
+}
+
+.wrapper {
+  background: url('src/assets/backdrop1.jpeg') center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.game-wrapper {
+  background-color: white;
+  padding: 16px;
+  margin: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  font-family: 'Lobster', cursive;
+}
+
+.header__image {
+  height: 100px;
+}
+
+.header__title {
+  color: cadetblue;
+  font-size: 40px;
+}
+
+.header__made-by {
+  color: goldenrod;
+  font-size: 20px;
+  margin-left: auto;
+}
+
+
