@@ -6,9 +6,14 @@ input {
   color: white;
 }
 
+label + input {
+  margin-left: 8px;
+}
+
 button {
   border: 3px solid gold;
   background-color: black;
+  color: gold;
 }
 
 .wrapper {
