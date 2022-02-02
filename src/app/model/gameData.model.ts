@@ -1,6 +1,6 @@
 import {Games} from "./games.model";
 
 export interface GameData {
-  newGameName: string;
-  games: Games[];
+  newGameName?: string;
+  games?: Games[];
 }
