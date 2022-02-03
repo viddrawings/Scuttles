@@ -1,66 +1,67 @@
-<div id="app" class="wrapper">
-  <div class="game-wrapper">
+<div class="wrapper">
     <div class="header">
       <img class="header__image" src="assets/scuttle.png" alt="scuttles"/>
-      <div class="header__title">Scuttles</div>
-      <div class="header__made-by">Made by: viddrawings</div>
+      <div class="header__title">
+        Scuttles
+      </div>
+      <div class="header__subtitle">
+        Made by: viddrawings
+      </div>
     </div>
 
-    <form [formGroup]="form">
-      <div>
-        <label for="gameName">add game</label>
-        <input id="gameName" formControlName="newGameName" (keydown.enter)="addGame($event)">
-      </div>
-    </form>
+  <div class="game-wrapper">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label>Game name:</label>
+      <input formControlName="gameName" (keydown.enter)="onGameName($event)"/>
 
-    <div *ngFor="let game of data?.games; let index = index;">
-      <h4>Game: {{game.name}}</h4>
-      <button (click)="data.games.splice(index,1)">
-        <mat-icon>
-          delete
-        </mat-icon>
-      </button>
+      <div class="teams">
+        <div class="team-blue">
+          <div>Blue team</div>
 
-      <div>
-        <h4>Players</h4>
-        <label>add player</label>
-        <input formControlName="playerName" (keydown.enter)="addPlayer(game)">
+          <div *ngFor="let playerBlueTeam of playersBlueTeam">
+            <div class="list-group-item">
+              <div [formGroup]="playerBlueTeam">
+                <label>Player</label>
+                <input type="text" formControlName="playerNameBlueTeam"/>
+                <input type="number" formControlName="playerGivePointsBlueTeam"/>
+                <button>Win</button>
+                <button>Lose</button>
+                <button>
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
 
-        <div *ngFor="let player of game.players; let index = index;">
-          <!--          {{ player.name }} - {{ formatPoints(player.points) }}-->
-          <!--          <button [disabled]="player.points < 1" (click)="bet(player, true)">win</button>-->
-          <!--          <button [disabled]="player.points < 1" (click)="bet(player, false)">lose</button>-->
-          <!--          <button (click)="cancelBet(player)">cancel</button>-->
-          <!--          &lt;!&ndash;   todo     <input [ngModel]="points" (keydown)="givePointsToPlayer(player, points)"></input>&ndash;&gt;-->
-          <!--          <button (click)="game.players.splice(index, 1)">delete</button>-->
+          <div class="bet-buttons">
+            <button class="first-blood"></button>
+            <button class="drake"></button>
+          </div>
+        </div>
+
+        <div class="team-red">
+          <div>Red team</div>
+
+          <div *ngFor="let playerRedTeam of playersRedTeam">
+            <div class="list-group-item">
+              <div [formGroup]="playerRedTeam">
+                <label>Player</label>
+                <input type="text" formControlName="playerNameRedTeam"/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!--      <div>-->
-      <!--        <h4>bets</h4>-->
-      <!--        <div *ngFor="let player of game.players">-->
-      <!--          <div *ngIf="player.bet.win !== null">-->
-      <!--            {{player.name}} - -->
-      <!--            {{formatPoints(player.bet.points)}} - -->
-      <!--            <span *ngIf="player.bet.win">win</span>-->
-      <!--            <span *ngIf="!player.bet.win">lose</span>-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--        <button (click)="payOut(game, true)">win</button>-->
-      <!--        <button (click)="payOut(game, false)">lose</button>-->
-      <!--      </div>-->
+      <div class="bets">
+        <div>
+          Current bets
+        </div>
+      </div>
 
-      <!--      <div>-->
-      <!--        <div>-->
-      <!--          <h4>log</h4>-->
-      <!--          <div *ngFor="let bet of game.betLog">-->
-      <!--            {{bet}}-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <hr>-->
-      <!--      <button (click)="saveToLocalStorage(data.games)">save</button>-->
-      <!--      <button (click)="loadFromLocalStorage(data.games)">load</button>-->
-    </div>
+      <div class="scoreboard">
+        <div>Scoreboard</div>
+      </div>
+    </form>
   </div>
 </div>
