@@ -36,6 +36,19 @@
   }
 }
 
+.game-name {
+  font-size: 18px;
+
+  label {
+    margin-right: 8px;
+  }
+
+  input {
+    padding: 8px;
+    width: 25%;
+  }
+}
+
 .teams {
   display: flex;
   border: 1px solid black;
@@ -60,8 +73,12 @@
 
 .bet-buttons {
   border-top: 1px solid black;
+  padding-top: 8px;
 }
 
+.bet-button {
+  margin-right: 8px;
+}
 
 .bets, .scoreboard {
   border: 1px solid black;
@@ -76,10 +93,44 @@
   background-size: cover;
 }
 
+.grey-out {
+  filter: grayscale(100%);
+}
+
 .first-blood {
   background-image: url('/../assets/blood-drop.png');
 }
 
 .drake {
   background-image: url('/../assets/hexdrake.jpeg');
+}
+
+.win-button, .lose-button, .clear-button {
+  border: 1px solid black;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 4px;
+  height: 35px;
+}
+
+.win-button {
+  background-color: dodgerblue;
+}
+
+.lose-button {
+  background-color: indianred;
+}
+
+.clear-button {
+  font-family: 'Material Icons';
+  font-size: 16px;
+}
+
+.role-icon {
+  height: 20px;
+}
+
+.player-row {
+  align-items: center;
+  display: flex;
 }

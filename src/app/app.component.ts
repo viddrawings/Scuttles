@@ -14,6 +14,35 @@ export class AppComponent {
   public form: FormGroup;
   public submitted = false;
 
+  public gameName: any;
+
+  public betButtons = [
+    'first-blood',
+    'drake',
+  ];
+  public roles = [
+    {
+      name: 'top',
+      url: '../assets/Top_icon.png'
+    },
+    {
+      name: 'mid',
+      url: '../assets/Middle_icon.png'
+    },
+    {
+      name: 'adc',
+      url: '../assets/Bottom_icon.png'
+    },
+    {
+      name: 'supp',
+      url: '../assets/Support_icon.png'
+    },
+    {
+      name: 'jungle',
+      url: '../assets/Jungle_icon.png'
+    }
+  ];
+
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       gameName: ['', Validators.required],
@@ -30,7 +59,8 @@ export class AppComponent {
   get playersRedTeam() { return this.playersRedTeamFormControls.controls as FormGroup[]; }
 
   public onGameName(event: any): void {
-    const gamesName = event.target.value;
+    const gameName = event.target.value;
+    this.gameName = gameName;
 
     for (let i = this.playersBlueTeamFormControls.length; i < 5; i++) {
       this.playersBlueTeamFormControls.push(this.formBuilder.group({
@@ -47,6 +77,24 @@ export class AppComponent {
     }
   }
 
+  public playerWin(player: any): void {
+  //   todo
+  }
+
+  public playerLose(player: any): void {
+  // todo
+  }
+
+  public clearPlayer(player: any): void {
+  // todo
+  }
+
+  public betButtonClicked(button: any): void {
+    if (button === 'drake') {
+    //  todo
+    }
+  }
+
   public onSubmit(): void {
     this.submitted = true;
 
@@ -57,5 +105,9 @@ export class AppComponent {
 
     // display form values on success
     // alert(JSON.stringify(this.form.value, null, 4));
+  }
+
+  public saveGame(): void {
+
   }
 }

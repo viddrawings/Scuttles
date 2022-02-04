@@ -11,56 +11,83 @@
 
   <div class="game-wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <label>Game name:</label>
-      <input formControlName="gameName" (keydown.enter)="onGameName($event)"/>
+      <div class="game-name">
+        <label for="gameName">Game name:</label>
+        <input id="gameName" formControlName="gameName" (keydown.enter)="onGameName($event)"/>
+        <hr/>
+      </div>
 
-      <div class="teams">
+      <div>
+        <h1>{{gameName}}</h1>
+      </div>
+
+      <div class="teams" *ngIf="gameName">
         <div class="team-blue">
           <div>Blue team</div>
 
-          <div *ngFor="let playerBlueTeam of playersBlueTeam">
-            <div class="list-group-item">
-              <div [formGroup]="playerBlueTeam">
+          <div *ngFor="let playerBlueTeam of playersBlueTeam; let i = index">
+            <div>
+              <div [formGroup]="playerBlueTeam" class="player-row">
                 <label>Player</label>
-                <input type="text" formControlName="playerNameBlueTeam"/>
-                <input type="number" formControlName="playerGivePointsBlueTeam"/>
-                <button>Win</button>
-                <button>Lose</button>
-                <button>
-                  <mat-icon>clear</mat-icon>
-                </button>
+                <img class="role-icon" [src]="roles[i].url" [alt]="roles[i].name"/>
+                <input type="text" placeholder="name" formControlName="playerNameBlueTeam"/>
+                <input type="number" placeholder="points" formControlName="playerGivePointsBlueTeam"/>
+
+                <button class="win-button" (click)="playerWin(playerBlueTeam)">Win</button>
+                <button class="lose-button" (click)="playerLose(playerBlueTeam)">Lose</button>
+                <button class="clear-button" (click)="clearPlayer(playerBlueTeam)">clear</button>
               </div>
             </div>
           </div>
 
           <div class="bet-buttons">
-            <button class="first-blood"></button>
-            <button class="drake"></button>
+            <ng-container  *ngFor="let betButton of betButtons">
+              <button [ngClass]="'bet-button grey-out ' + betButton" (click)="betButtonClicked(betButton)"></button>
+            </ng-container>
           </div>
         </div>
 
         <div class="team-red">
           <div>Red team</div>
 
-          <div *ngFor="let playerRedTeam of playersRedTeam">
-            <div class="list-group-item">
-              <div [formGroup]="playerRedTeam">
+          <div *ngFor="let playerRedTeam of playersRedTeam; let i = index">
+            <div>
+              <div [formGroup]="playerRedTeam" class="player-row">
                 <label>Player</label>
-                <input type="text" formControlName="playerNameRedTeam"/>
+                <img class="role-icon" [src]="roles[i].url" [alt]="roles[i].name"/>
+                <input type="text" placeholder="name" formControlName="playerNameRedTeam"/>
+                <input type="number" placeholder="points" formControlName="playerGivePointsRedTeam"/>
+
+                <button class="win-button" (click)="playerWin(playerRedTeam)">Win</button>
+                <button class="lose-button" (click)="playerLose(playerRedTeam)">Lose</button>
+                <button class="clear-button" (click)="clearPlayer(playerRedTeam)">clear</button>
               </div>
             </div>
+          </div>
+
+          <div class="bet-buttons">
           </div>
         </div>
       </div>
 
-      <div class="bets">
+      <div class="bets" *ngIf="gameName">
         <div>
           Current bets
         </div>
+        <div>
+          TODO: player name - BTC count - status (lose/win)
+        </div>
       </div>
 
-      <div class="scoreboard">
+      <div class="scoreboard" *ngIf="gameName">
         <div>Scoreboard</div>
+        <div>
+          TODO: number - player name - status (lost/win) - points
+        </div>
+      </div>
+
+      <div class="extra-options" *ngIf="gameName">
+        <button (click)="saveGame()">Save Game</button>
       </div>
     </form>
   </div>
