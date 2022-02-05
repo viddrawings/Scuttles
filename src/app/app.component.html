@@ -1,13 +1,13 @@
 <div class="wrapper">
-    <div class="header">
-      <img class="header__image" src="./assets/scuttle.png" alt="scuttles"/>
-      <div class="header__title">
-        Scuttles
-      </div>
-      <div class="header__subtitle">
-        Made by: viddrawings
-      </div>
+  <div class="header">
+    <img class="header__image" src="./assets/scuttle.png" alt="scuttles"/>
+    <div class="header__title">
+      Scuttles
     </div>
+    <div class="header__subtitle">
+      Made by: viddrawings
+    </div>
+  </div>
 
   <div class="game-wrapper">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -23,15 +23,20 @@
 
       <div class="teams" *ngIf="gameName">
         <div class="team-blue">
-          <div>Blue team</div>
+          <div class="team-title">
+            <div>Blue team</div>
+            <button class="disable-unused-players-button" (click)="disableUnusedPlayers(playersBlueTeam)">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </div>
 
           <div *ngFor="let playerBlueTeam of playersBlueTeam; let i = index">
             <div>
               <div [formGroup]="playerBlueTeam" class="player-row">
                 <label>Player</label>
                 <img class="role-icon" [src]="roles[i].url" [alt]="roles[i].name"/>
-                <input type="text" placeholder="name" formControlName="playerNameBlueTeam"/>
-                <input type="number" placeholder="points" formControlName="playerGivePointsBlueTeam"/>
+                <input type="text" placeholder="name" formControlName="playerName"/>
+                <input type="number" placeholder="points" formControlName="playerGivePoints"/>
 
                 <button class="win-button" (click)="playerWin(playerBlueTeam)">Win</button>
                 <button class="lose-button" (click)="playerLose(playerBlueTeam)">Lose</button>
@@ -48,15 +53,20 @@
         </div>
 
         <div class="team-red">
+          <div class="team-title">
           <div>Red team</div>
+            <button class="disable-unused-players-button" (click)="disableUnusedPlayers(playersRedTeam)">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </div>
 
           <div *ngFor="let playerRedTeam of playersRedTeam; let i = index">
             <div>
               <div [formGroup]="playerRedTeam" class="player-row">
                 <label>Player</label>
                 <img class="role-icon" [src]="roles[i].url" [alt]="roles[i].name"/>
-                <input type="text" placeholder="name" formControlName="playerNameRedTeam"/>
-                <input type="number" placeholder="points" formControlName="playerGivePointsRedTeam"/>
+                <input type="text" placeholder="name" formControlName="playerName"/>
+                <input type="number" placeholder="points" formControlName="playerGivePoints"/>
 
                 <button class="win-button" (click)="playerWin(playerRedTeam)">Win</button>
                 <button class="lose-button" (click)="playerLose(playerRedTeam)">Lose</button>
@@ -76,6 +86,7 @@
         </div>
         <div>
           TODO: player name - BTC count - status (lose/win)
+          <app-bets></app-bets>
         </div>
       </div>
 
@@ -83,6 +94,7 @@
         <div>Scoreboard</div>
         <div>
           TODO: number - player name - status (lost/win) - points
+          <app-scoreboard></app-scoreboard>
         </div>
       </div>
 

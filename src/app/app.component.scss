@@ -58,6 +58,14 @@
   }
 }
 
+.team-title {
+  display: flex;
+
+  button {
+    margin-left: auto;
+  }
+}
+
 .team-blue {
   border-right: 1px solid black;
   background-color: lightblue;
@@ -98,11 +106,11 @@
 }
 
 .first-blood {
-  background-image: url('/../assets/blood-drop.png');
+  background-image: url('~src/assets/blood-drop.png');
 }
 
 .drake {
-  background-image: url('/../assets/hexdrake.jpeg');
+  background-image: url('~src/assets/hexdrake.jpeg');
 }
 
 .win-button, .lose-button, .clear-button {
@@ -133,4 +141,14 @@
 .player-row {
   align-items: center;
   display: flex;
+}
+
+.player-row > * {
+  // todo: flex: 1 1 auto;
+  margin: 5px;
+}
+
+.disable-unused-players-button {
+  border: none;
+  background: none;
 }

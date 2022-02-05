@@ -7,10 +7,15 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "./material-module";
 import {CommonModule} from "@angular/common";
+import { ScoreboardComponent } from './components/scoreboard/scoreboard.component';
+import { BetsComponent } from './components/bets/bets.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ScoreboardComponent,
+    BetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,6 @@ import {CommonModule} from "@angular/common";
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    // AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]
