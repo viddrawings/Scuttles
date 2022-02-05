@@ -46,7 +46,7 @@
           </div>
 
           <div class="bet-buttons">
-            <ng-container  *ngFor="let betButton of betButtons">
+            <ng-container *ngFor="let betButton of betButtons">
               <button [ngClass]="'bet-button grey-out ' + betButton" (click)="betButtonClicked(betButton)"></button>
             </ng-container>
           </div>
@@ -76,6 +76,9 @@
           </div>
 
           <div class="bet-buttons">
+            <ng-container *ngFor="let betButton of betButtons">
+              <button [ngClass]="'bet-button grey-out ' + betButton" (click)="betButtonClicked(betButton)"></button>
+            </ng-container>
           </div>
         </div>
       </div>
@@ -85,7 +88,6 @@
           Current bets
         </div>
         <div>
-          TODO: player name - BTC count - status (lose/win)
           <app-bets></app-bets>
         </div>
       </div>
@@ -93,7 +95,6 @@
       <div class="scoreboard" *ngIf="gameName">
         <div>Scoreboard</div>
         <div>
-          TODO: number - player name - status (lost/win) - points
           <app-scoreboard></app-scoreboard>
         </div>
       </div>

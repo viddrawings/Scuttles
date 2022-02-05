@@ -18,7 +18,13 @@ export class AppComponent {
 
   public betButtons = [
     'first-blood',
-    'drake',
+    'first-baron',
+    'first-tower',
+    'hextech-drake',
+    'ocean-drake',
+    'cloud-drake',
+    'infernal-drake',
+    'mountain-drake',
   ];
   public roles = [
     {
@@ -43,19 +49,17 @@ export class AppComponent {
     }
   ];
 
-//   win/ losses (also known as red/ blue) no limit
 //   kda> 3.0 (100) (evens), kdx<3.0 (100) (evens), kda=3.0 (push so return 50)                            (options: >3.0, <3.0)
 //   (supports excluded) cs>100/15mins (100) (evens), cs<100/15 (100) (evens), if exactly 100 then push (so return 50)                      (options: >100, <100)
-//   First blood (50) (evens)                                    (options: red/blue)
-//   Pentakill (30)  (1/100)                                   (options: red/blue)
-//   Chemtech map (20) (payout is 1/6)                     (options:bet)
-//   Hextech map (20) (payout is 1/6)                  (options:bet)
-//   Ocean map (20) (payout is 1/6)              (options:bet)
-//   Cloud map (20) (payout is 1/6)          (options:bet)
-//   Infernal map (20) (payout is 1/6)                       (options:bet)
-//   Mountain map (20) (payout is 1/6)              (options:bet)
-//   First baron (50) (evens)                           (options:bet)
-//   First tower (50) (evens)                            (options:bet)
+//   -- First blood (50) (evens)
+//   -- Pentakill (30)  (1/100)
+//   -- Hextech map (20) (payout is 1/6)                  (options:bet)
+//   -- Ocean map (20) (payout is 1/6)              (options:bet)
+//   -- Cloud map (20) (payout is 1/6)          (options:bet)
+//   -- Infernal map (20) (payout is 1/6)                       (options:bet)
+//   -- Mountain map (20) (payout is 1/6)              (options:bet)
+//   -- First baron (50) (evens)                           (options:bet)
+//   -- First tower (50) (evens)                            (options:bet)
 //   death>5 (100) (evens), death<5 (100) (evens), death=5 (push so return 50)                            (options: >5, <5)
 
   constructor(
@@ -104,11 +108,11 @@ export class AppComponent {
   }
 
   public playerWin(player: any): void {
-    // todo: player.controls.playerGivePoints.value
+    // todo: player.controls.playerGivePoints.value - 1;
   }
 
   public playerLose(player: any): void {
-  // todo: player.controls.playerGivePoints.value
+    // todo: player.controls.playerGivePoints.value - 1;
   }
 
   public clearPlayer(player: any): void {
@@ -135,6 +139,6 @@ export class AppComponent {
   }
 
   public saveGame(): void {
-  //   todo: connect to firebase
+  //   todo: connect to database
   }
 }

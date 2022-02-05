@@ -93,7 +93,14 @@
   padding: 16px;
 }
 
-.first-blood, .drake {
+.first-blood,
+.hextech-drake,
+.ocean-drake,
+.cloud-drake,
+.infernal-drake,
+.mountain-drake,
+.first-baron,
+{
   border: 1px solid black;
   width: 50px;
   height: 50px;
@@ -102,15 +109,35 @@
 }
 
 .grey-out {
-  filter: grayscale(100%);
+  filter: grayscale(75%);
 }
 
 .first-blood {
   background-image: url('~src/assets/blood-drop.png');
 }
 
-.drake {
+.hextech-drake {
   background-image: url('~src/assets/hexdrake.jpeg');
+}
+
+.ocean-drake {
+  background-image: url('~src/assets/ocean.png');
+}
+
+.cloud-drake {
+  background-image: url('~src/assets/cloud.png');
+}
+
+.infernal-drake {
+  background-image: url('~src/assets/infernal.png');
+}
+
+.mountain-drake {
+  background-image: url('~src/assets/mountain.png');
+}
+
+.first-baron {
+  background-image: url('~src/assets/baron.png');
 }
 
 .win-button, .lose-button, .clear-button {
