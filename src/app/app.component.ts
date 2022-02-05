@@ -23,23 +23,23 @@ export class AppComponent {
   public roles = [
     {
       name: 'top',
-      url: '../assets/Top_icon.png'
+      url: './assets/Top_icon.png'
     },
     {
       name: 'mid',
-      url: '../assets/Middle_icon.png'
+      url: './assets/Middle_icon.png'
     },
     {
       name: 'adc',
-      url: '../assets/Bottom_icon.png'
+      url: './assets/Bottom_icon.png'
     },
     {
       name: 'supp',
-      url: '../assets/Support_icon.png'
+      url: './assets/Support_icon.png'
     },
     {
       name: 'jungle',
-      url: '../assets/Jungle_icon.png'
+      url: './assets/Jungle_icon.png'
     }
   ];
 
